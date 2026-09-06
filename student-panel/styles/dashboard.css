@@ -1,20 +1,20 @@
 /* ===== Dashboard Page ===== */
 
-.dash-container {
+.d-container {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   position: relative;
 }
 
-.dash-notification-wrapper {
+.dn-wrapper {
   position: absolute;
   top: -1rem;
   right: 0;
   z-index: 100;
 }
 
-.dash-notification-icon {
+.dn-icon {
   width: 2.75rem;
   height: 2.75rem;
   display: inline-flex;
@@ -29,17 +29,17 @@
   position: relative;
 }
 
-.dash-notification-icon:hover {
+.dn-icon:hover {
   background-color: #f3f4f6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
-.dash-notification-icon .material-symbols-outlined {
+.dn-icon .material-symbols-outlined {
   font-size: 1.35rem;
 }
 
-.dash-notification-badge {
+.dn-badge {
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;
@@ -56,7 +56,7 @@
   padding: 0 0.25rem;
 }
 
-.dash-notification-dropdown {
+.dn-dropdown {
   position: absolute;
   top: 3.5rem;
   right: 0;
@@ -68,7 +68,7 @@
   z-index: 1000;
 }
 
-.dash-notification-header {
+.dn-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -76,14 +76,14 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-.dash-notification-header h3 {
+.dn-header h3 {
   font-size: 1rem;
   font-weight: 600;
   color: #1f2937;
   margin: 0;
 }
 
-.dash-close-btn {
+.d-close-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
@@ -97,23 +97,23 @@
   justify-content: center;
 }
 
-.dash-close-btn:hover {
+.d-close-btn:hover {
   color: #1f2937;
 }
 
-.dash-notification-list {
+.dn-list {
   max-height: 400px;
   overflow-y: auto;
 }
 
-.dash-no-notifications {
+.dn-empty {
   padding: 2rem 1rem;
   text-align: center;
   color: #6b7280;
   font-size: 0.875rem;
 }
 
-.dash-notification-item {
+.dn-item {
   display: block;
   width: 100%;
   text-align: left;
@@ -127,15 +127,15 @@
   position: relative;
 }
 
-.dash-notification-item:hover {
+.dn-item:hover {
   background-color: #eff6ff;
 }
 
-.dash-notification-read {
+.dn-read {
   opacity: 0.85;
 }
 
-.dash-notification-title {
+.dn-title {
   font-size: 0.875rem;
   font-weight: 600;
   color: #0f172a;
@@ -143,50 +143,13 @@
   padding-right: 2.5rem;
 }
 
-.dash-notification-leader {
+.dn-leader {
   font-size: 0.8125rem;
   color: #64748b;
   margin: 0;
 }
 
-.dash-notification-time {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  margin: 0;
-}
-
-.dash-notification-status {
-  font-size: 0.75rem;
-  color: #6b7280;
-  margin: 0 0 0.25rem 0;
-}
-
-.dash-status-accepted {
-  color: #16a34a;
-  font-weight: 600;
-}
-
-.dash-status-rejected {
-  color: #ef4444;
-  font-weight: 600;
-}
-
-.dash-status-pending {
-  color: #f59e0b;
-  font-weight: 600;
-}
-
-.dash-notification-dot {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: #3b82f6;
-  border-radius: 50%;
-}
-
-.dash-notification-new {
+.dn-new {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
@@ -199,7 +162,7 @@
   border-radius: 0.25rem;
 }
 
-.dash-welcome-banner {
+.dw-banner {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
@@ -212,7 +175,7 @@
   margin-top: 2rem;
 }
 
-.dash-welcome-bg {
+.dw-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -222,20 +185,20 @@
   background-position: center;
 }
 
-.dash-welcome-overlay {
+.dw-overlay {
   position: absolute;
   inset: 0;
   z-index: 10;
   display: none;
 }
 
-.dash-welcome-content {
+.dw-content {
   position: relative;
   z-index: 20;
   padding: 1.5rem 2rem;
 }
 
-.dash-notification-btn {
+.dn-btn {
   position: absolute;
   top: 1rem;
   right: 2rem;
@@ -252,39 +215,39 @@
   transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.dash-notification-btn:hover {
+.dn-btn:hover {
   background-color: rgba(255, 255, 255, 0.16);
   transform: translateY(-1px);
 }
 
-.dash-notification-btn .material-symbols-outlined {
+.dn-btn .material-symbols-outlined {
   font-size: 1.35rem;
 }
 
-.dash-welcome-title {
+.dw-title {
   font-size: 1.875rem;
   font-weight: 700;
   letter-spacing: -0.025em;
   margin-bottom: 0.5rem;
 }
 
-.dash-welcome-subtitle {
+.dw-subtitle {
   color: #ffffff;
 }
 
-.dash-stats-grid {
+.ds-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .dash-stats-grid {
+  .ds-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.dash-stat-card {
+.ds-card {
   background-color: white;
   border-radius: 0.75rem;
   padding: 1.5rem;
@@ -297,17 +260,17 @@
   transition: border-color 0.15s ease;
 }
 
-.dash-stat-card:hover {
+.ds-card:hover {
   border-color: rgba(37, 99, 235, 0.5);
 }
 
-.dash-stat-header {
+.ds-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.dash-stat-icon {
+.ds-icon {
   padding: 0.75rem;
   border-radius: 0.5rem;
   display: flex;
@@ -315,61 +278,61 @@
   justify-content: center;
 }
 
-.dash-stat-icon-blue {
+.ds-icon-blue {
   background-color: rgba(37, 99, 235, 0.1);
   color: #2563eb;
 }
 
-.dash-stat-icon-purple {
+.ds-icon-purple {
   background-color: rgba(168, 85, 247, 0.1);
   color: #a855f7;
 }
 
-.dash-stat-icon-green {
+.ds-icon-green {
   background-color: rgba(34, 197, 94, 0.1);
   color: #16a34a;
 }
 
-.dash-stat-badge {
+.ds-badge {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
 }
 
-.dash-stat-badge-green {
+.ds-badge-green {
   background-color: rgba(34, 197, 94, 0.1);
   color: #16a34a;
 }
 
-.dash-stat-badge-purple {
+.ds-badge-purple {
   background-color: rgba(168, 85, 247, 0.1);
   color: #a855f7;
 }
 
-.dash-stat-badge-slate {
+.ds-badge-slate {
   background-color: rgba(148, 163, 184, 0.1);
   color: #64748b;
 }
 
-.dash-stat-content {
+.ds-content {
   margin-top: auto;
 }
 
-.dash-stat-label {
+.ds-label {
   font-size: 0.875rem;
   font-weight: 500;
   color: #6b7280;
 }
 
-.dash-stat-value {
+.ds-value {
   font-size: 1.875rem;
   font-weight: 700;
   color: #1f2937;
   margin-top: 0.25rem;
 }
 
-.dash-files-card {
+.df-card {
   background-color: white;
   border-radius: 0.75rem;
   padding: 1.5rem;
@@ -381,24 +344,24 @@
   transition: border-color 0.15s ease;
 }
 
-.dash-files-card:hover {
+.df-card:hover {
   border-color: rgba(37, 99, 235, 0.5);
 }
 
-.dash-files-header {
+.df-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.dash-files-title {
+.df-title {
   font-size: 0.875rem;
   font-weight: 500;
   color: #6b7280;
 }
 
-.dash-files-list {
+.df-list {
   flex: 1;
   overflow-y: auto;
   display: flex;
@@ -407,34 +370,34 @@
   max-height: 400px;
 }
 
-.dash-file-item {
+.df-item {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
-.dash-file-icon {
+.df-icon {
   padding: 0.375rem;
   border-radius: 0.25rem;
   margin-top: 0.125rem;
 }
 
-.dash-file-icon-red {
+.df-icon-red {
   background-color: rgba(239, 68, 68, 0.1);
   color: #ef4444;
 }
 
-.dash-file-icon-blue {
+.df-icon-blue {
   background-color: rgba(37, 99, 235, 0.1);
   color: #2563eb;
 }
 
-.dash-file-info {
+.df-info {
   min-width: 0;
   flex: 1;
 }
 
-.dash-file-name {
+.df-name {
   font-size: 0.875rem;
   font-weight: 500;
   color: #1f2937;
@@ -443,7 +406,7 @@
   white-space: nowrap;
 }
 
-.dash-file-announcement {
+.df-announcement {
   font-size: 0.8rem;
   color: #059669;
   font-weight: 500;
@@ -454,12 +417,12 @@
   border-left: 3px solid #10b981;
 }
 
-.dash-file-time {
+.df-time {
   font-size: 0.75rem;
   color: #6b7280;
 }
 
-.dash-view-btn {
+.d-view-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -475,14 +438,14 @@
   margin-left: auto;
 }
 
-.dash-view-btn:hover {
+.d-view-btn:hover {
   background-color: #f1f5f9;
   border-color: #d1d5db;
   color: #374151;
 }
 
 /* Empty State for Files */
-.dash-files-empty {
+.df-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -492,20 +455,20 @@
   color: #64748b;
 }
 
-.dash-files-empty-icon {
+.df-empty-icon {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
   opacity: 0.5;
 }
 
-.dash-files-empty-title {
+.df-empty-title {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
   color: #475569;
 }
 
-.dash-files-empty-subtitle {
+.df-empty-subtitle {
   font-size: 0.875rem;
   color: #64748b;
 }

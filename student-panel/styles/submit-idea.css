@@ -38,71 +38,6 @@
 
 /* Steps */
 
-.si-steps {
-  background-color: #f8fafc;
-  border-bottom: 1px solid #e5e7eb;
-  padding: 1.25rem 1.5rem;
-}
-
-.si-steps-inner {
-  max-width: 32rem;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.si-step {
-  display: flex;
-  align-items: center;
-  color: #9ca3af;
-  font-size: 0.8rem;
-}
-
-.si-step-active {
-  color: #2563eb;
-}
-
-.si-step-circle {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 999px;
-  border: 2px solid #d1d5db;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.si-step-circle-active {
-  border: none;
-  background-color: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.5);
-}
-
-.si-step-label {
-  display: none;
-  margin-left: 0.35rem;
-  font-weight: 600;
-}
-
-@media (min-width: 640px) {
-  .si-step-label {
-    display: inline;
-  }
-}
-
-.si-step-line {
-  height: 0.25rem;
-  width: 4rem;
-  border-radius: 999px;
-  background-color: #e5e7eb;
-  margin: 0 0.75rem;
-}
-
 /* Card inner / form */
 
 .si-card-inner {
@@ -197,29 +132,6 @@
 
 /* Input with icon */
 
-.si-input-icon-wrapper {
-  position: relative;
-}
-
-.si-input-with-icon {
-  padding-left: 2.4rem;
-}
-
-.si-input-icon-prefix {
-  position: absolute;
-  inset: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  padding-left: 0.75rem;
-  pointer-events: none;
-}
-
-.si-input-icon-person {
-  font-size: 20px;
-  color: #9ca3af;
-}
-
 /* Textarea */
 
 .si-textarea {
@@ -294,16 +206,6 @@
 
 .si-chip-remove-icon {
   font-size: 16px;
-}
-
-.si-chip-input-field {
-  border: none;
-  outline: none;
-  background: transparent;
-  min-width: 9rem;
-  flex: 1;
-  font-size: 0.8rem;
-  color: #111827;
 }
 
 /* Hint text */

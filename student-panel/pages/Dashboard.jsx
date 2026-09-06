@@ -109,10 +109,10 @@ const Dashboard = ({ userName }) => {
   };
 
   const getFileIconColor = (fileType) => {
-    if (fileType.includes('pdf')) return 'dash-file-icon-red';
-    if (fileType.includes('image')) return 'dash-file-icon-green';
-    if (fileType.includes('doc') || fileType.includes('word')) return 'dash-file-icon-blue';
-    return 'dash-file-icon-gray';
+    if (fileType.includes('pdf')) return 'df-icon-red';
+    if (fileType.includes('image')) return 'df-icon-green';
+    if (fileType.includes('doc') || fileType.includes('word')) return 'df-icon-blue';
+    return 'df-icon-gray';
   };
 
   const handleDownloadFile = (file) => {
@@ -145,39 +145,39 @@ const Dashboard = ({ userName }) => {
   };
 
   return (
-    <div className="dash-container">
-      <div className="dash-notification-wrapper">
+    <div className="d-container">
+      <div className="dn-wrapper">
         <button
-          className="dash-notification-icon"
+          className="dn-icon"
           type="button"
           aria-label="Notifications"
           onClick={() => setShowNotifications(!showNotifications)}
         >
           <span className="material-symbols-outlined">notifications</span>
-          {unreadCount > 0 && <span className="dash-notification-badge">{unreadCount}</span>}
+          {unreadCount > 0 && <span className="dn-badge">{unreadCount}</span>}
         </button>
         {showNotifications && (
-          <div className="dash-notification-dropdown">
-            <div className="dash-notification-header">
+          <div className="dn-dropdown">
+            <div className="dn-header">
               <h3>Notifications</h3>
-              <button onClick={() => setShowNotifications(false)} className="dash-close-btn">×</button>
+              <button onClick={() => setShowNotifications(false)} className="d-close-btn">×</button>
             </div>
-            <div className="dash-notification-list">
+            <div className="dn-list">
               {notifications.length === 0 ? (
-                <p className="dash-no-notifications">No notifications</p>
+                <p className="dn-empty">No notifications</p>
               ) : (
                 notifications.map((notification) => (
                   <button
                     key={notification._id}
                     type="button"
-                    className={`dash-notification-item ${notification.read ? 'dash-notification-read' : ''}`}
+                    className={`dn-item ${notification.read ? 'dn-read' : ''}`}
                     onClick={() => handleMarkAsRead(notification._id)}
                   >
-                    <p className="dash-notification-title">{notification.title}</p>
-                    <p className="dash-notification-leader">Leader: {notification.leaderName}</p>
-                    <p className="dash-notification-leader">Status: {notification.status}</p>
-                    <p className="dash-notification-leader">Time: {formatTimestamp(notification.submittedAt)}</p>
-                    {!notification.read && <span className="dash-notification-new">New</span>}
+                    <p className="dn-title">{notification.title}</p>
+                    <p className="dn-leader">Leader: {notification.leaderName}</p>
+                    <p className="dn-leader">Status: {notification.status}</p>
+                    <p className="dn-leader">Time: {formatTimestamp(notification.submittedAt)}</p>
+                    {!notification.read && <span className="dn-new">New</span>}
                   </button>
                 ))
               )}
@@ -187,68 +187,68 @@ const Dashboard = ({ userName }) => {
       </div>
 
       {/* Welcome Banner */}
-      <div className="dash-welcome-banner">
+      <div className="dw-banner">
         <div 
-          className="dash-welcome-bg" 
+          className="dw-bg" 
           style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZOAkHwo3o9KnO8-LyQWXOL47RdVVfmSDXj6bbBQM6AcRTDwr6VII0_UDLOwwqHEOJ7ErGGBz08Kfm55H50v-u2M_NEKy23EillxdCJCYygjtPy16bkAcxdge6oDzIEfPrppyD3Zjodqc_r_eqwFo-kQ_yedQ4YqtxPpeU--FMGI4wy40qYngQOSrkPpTkA2TmUD82zptG3YWWePlq_BnXAMTB8pieL8Z-LdJyGnGEQbWMVw_6WSWtXJT3QRXqN6Bw0LoRr7Cs-TRN')"}}
         ></div>
-        <div className="dash-welcome-overlay"></div>
-        <div className="dash-welcome-content">
-          <h2 className="dash-welcome-title">Welcome back, Student!</h2>
-          <p className="dash-welcome-subtitle">You have {uploadedFiles.length} new file(s) to review.</p>
+        <div className="dw-overlay"></div>
+        <div className="dw-content">
+          <h2 className="dw-title">Welcome back, Student!</h2>
+          <p className="dw-subtitle">You have {uploadedFiles.length} new file(s) to review.</p>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="dash-stats-grid">
-        <div className="dash-stat-card">
-          <div className="dash-stat-header">
-            <div className="dash-stat-icon dash-stat-icon-purple">
+      <div className="ds-grid">
+        <div className="ds-card">
+          <div className="ds-header">
+            <div className="ds-icon ds-icon-purple">
               <span className="material-symbols-outlined text-2xl">upload</span>
             </div>
-            <span className="dash-stat-badge dash-stat-badge-purple">Submitted</span>
+            <span className="ds-badge ds-badge-purple">Submitted</span>
           </div>
-          <div className="dash-stat-content">
-            <h3 className="dash-stat-label">Submit Ideas</h3>
-            <p className="dash-stat-value">{ideaStats.submitted}</p>
+          <div className="ds-content">
+            <h3 className="ds-label">Submit Ideas</h3>
+            <p className="ds-value">{ideaStats.submitted}</p>
           </div>
         </div>
 
-        <div className="dash-stat-card">
-          <div className="dash-stat-header">
-            <div className="dash-stat-icon dash-stat-icon-green">
+        <div className="ds-card">
+          <div className="ds-header">
+            <div className="ds-icon ds-icon-green">
               <span className="material-symbols-outlined text-2xl">check_circle</span>
             </div>
-            <span className="dash-stat-badge dash-stat-badge-green">Approved</span>
+            <span className="ds-badge ds-badge-green">Approved</span>
           </div>
-          <div className="dash-stat-content">
-            <h3 className="dash-stat-label">Approved Ideas</h3>
-            <p className="dash-stat-value">{ideaStats.approved}</p>
+          <div className="ds-content">
+            <h3 className="ds-label">Approved Ideas</h3>
+            <p className="ds-value">{ideaStats.approved}</p>
           </div>
         </div>
 
-        <div className="dash-files-card">
-          <div className="dash-files-header">
-            <h3 className="dash-files-title">Latest File Uploads</h3>
-            <span className="dash-stat-badge dash-stat-badge-slate">{uploadedFiles.length} files</span>
+        <div className="df-card">
+          <div className="df-header">
+            <h3 className="df-title">Latest File Uploads</h3>
+            <span className="ds-badge ds-badge-slate">{uploadedFiles.length} files</span>
           </div>
-          <div className="dash-files-list">
+          <div className="df-list">
             {uploadedFiles.length === 0 ? (
-              <div className="dash-files-empty">
-                <span className="material-symbols-outlined dash-files-empty-icon">folder_open</span>
-                <p className="dash-files-empty-title">No files uploaded yet</p>
-                <p className="dash-files-empty-subtitle">Check back later for new materials</p>
+              <div className="df-empty">
+                <span className="material-symbols-outlined df-empty-icon">folder_open</span>
+                <p className="df-empty-title">No files uploaded yet</p>
+                <p className="df-empty-subtitle">Check back later for new materials</p>
               </div>
             ) : (
               uploadedFiles.slice().reverse().map((file) => (
-                <div key={file.id} className="dash-file-item">
-                  <div className={`dash-file-icon ${getFileIconColor(file.type)}`}>
+                <div key={file.id} className="df-item">
+                  <div className={`df-icon ${getFileIconColor(file.type)}`}>
                     <span className="material-symbols-outlined text-[20px]">{getFileIcon(file.type)}</span>
                   </div>
-                  <div className="dash-file-info">
-                    <p className="dash-file-name">{file.name}</p>
+                  <div className="df-info">
+                    <p className="df-name">{file.name}</p>
                     {file.announcement && file.announcement !== 'No announcement' && (
-                      <p className="dash-file-announcement">{file.announcement}</p>
+                      <p className="df-announcement">{file.announcement}</p>
                     )}
                     <div style={{ display: 'flex', gap: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
                       <span>{file.size}</span>
@@ -257,7 +257,7 @@ const Dashboard = ({ userName }) => {
                     </div>
                   </div>
                   <button 
-                    className="dash-view-btn"
+                    className="d-view-btn"
                     onClick={() => handleDownloadFile(file)}
                   >
                     <span className="material-symbols-outlined text-[16px]">download</span>
