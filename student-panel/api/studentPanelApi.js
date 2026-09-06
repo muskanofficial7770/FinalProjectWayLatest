@@ -44,15 +44,6 @@ export const getAllIdeas = async () => {
   }
 };
 
-export const getIdeasByLeader = async (leaderName) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/student-ideas/leader/${encodeURIComponent(leaderName)}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching ideas by leader:', error);
-    return { success: false, message: 'Error fetching ideas', error: error.message };
-  }
-};
 
 export const getIdeaStats = async (projectName = '', leaderName = '', groupId = '') => {
   try {
@@ -110,15 +101,6 @@ export const getAllUploads = async () => {
   }
 };
 
-export const getUploadById = async (id) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/teacher-uploads/${id}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching upload:', error);
-    return { success: false, message: 'Error fetching upload', error: error.message };
-  }
-};
 
 // Tasks API
 export const createTask = async (taskData) => {
@@ -137,15 +119,6 @@ export const createTask = async (taskData) => {
   }
 };
 
-export const getTasksByProject = async (projectName) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/tasks/project/${encodeURIComponent(projectName)}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching tasks:', error);
-    return { success: false, message: 'Error fetching tasks', error: error.message };
-  }
-};
 
 export const toggleTaskStatus = async (taskId) => {
   try {
@@ -162,27 +135,7 @@ export const toggleTaskStatus = async (taskId) => {
   }
 };
 
-export const deleteTask = async (taskId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/tasks/${taskId}`, {
-      method: 'DELETE',
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error deleting task:', error);
-    return { success: false, message: 'Error deleting task', error: error.message };
-  }
-};
 
-export const getTaskStats = async (projectName) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/tasks/stats/${encodeURIComponent(projectName)}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching task stats:', error);
-    return { success: false, message: 'Error fetching task stats', error: error.message };
-  }
-};
 
 // Teams API
 export const saveTeam = async (teamData) => {
@@ -201,15 +154,6 @@ export const saveTeam = async (teamData) => {
   }
 };
 
-export const getTeamByProject = async (projectName) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/teams/project/${encodeURIComponent(projectName)}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching team:', error);
-    return { success: false, message: 'Error fetching team', error: error.message };
-  }
-};
 
 export const getTeamByGroupId = async (groupId) => {
   try {
@@ -241,51 +185,9 @@ export const getGroupByGroupId = async (groupId) => {
   }
 };
 
-export const verifyLeaderPassword = async (projectName, password) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/teams/verify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ projectName, password }),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error verifying password:', error);
-    return { success: false, message: 'Error verifying password', error: error.message };
-  }
-};
 
-export const updateProjectName = async (oldProjectName, newProjectName) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/teams/project-name`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ oldProjectName, newProjectName }),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error updating project name:', error);
-    return { success: false, message: 'Error updating project name', error: error.message };
-  }
-};
 
 // Feedback API
-export const getFeedbackByLeader = async (leaderName, userName) => {
-  try {
-    const params = new URLSearchParams();
-    if (userName) params.append('userName', userName);
-    const query = params.toString();
-    const response = await fetch(`${API_BASE_URL}/api/feedback/leader/${encodeURIComponent(leaderName)}${query ? '?' + query : ''}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching feedback:', error);
-    return { success: false, message: 'Error fetching feedback', error: error.message };
-  }
-};
 
 export const getAllFeedback = async (groupId = '', userName) => {
   try {
@@ -317,41 +219,7 @@ export const markFeedbackAsRead = async (feedbackId, userName) => {
   }
 };
 
-export const getFeedbackByGroup = async (groupId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/feedback/group/${encodeURIComponent(groupId)}`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching feedback by group:', error);
-    return { success: false, message: 'Error fetching feedback by group', error: error.message };
-  }
-};
 
-// Notifications API
-export const getAllNotifications = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/notifications/all`);
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching notifications:', error);
-    return { success: false, message: 'Error fetching notifications', error: error.message };
-  }
-};
-
-export const markNotificationAsRead = async (notificationId) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/notifications/read/${notificationId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error marking notification as read:', error);
-    return { success: false, message: 'Error marking notification as read', error: error.message };
-  }
-};
 
 // Student Issues API
 export const getStudentIssues = async (groupId = '', userName) => {

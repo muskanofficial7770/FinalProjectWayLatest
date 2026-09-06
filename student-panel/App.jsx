@@ -8,7 +8,7 @@ import ProgressTracking from "./pages/ProgressTracking";
 import AssignTask from "./pages/AssignTask";
 import Help from "./pages/Help";
 import DiagramEditor from "./pages/DiagramEditor";
-import { saveTeam, getTeamByProject, getTeamByGroupId, createTask, getTasksByProject, getTasksByGroupId, toggleTaskStatus, getUserGroupId } from "./api/studentPanelApi";
+import { saveTeam, getTeamByGroupId, createTask, getTasksByGroupId, toggleTaskStatus, getUserGroupId } from "./api/studentPanelApi";
 import "./styles/app.css";
 import "./styles/dashboard.css";
 import "./styles/submit-idea.css";

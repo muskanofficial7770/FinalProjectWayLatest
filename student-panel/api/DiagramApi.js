@@ -55,14 +55,4 @@ export const diagramApi = {
     }
   },
 
-  // Delete a diagram by ID
-  deleteDiagram: async (diagramId) => {
-    try {
-      const response = await api.delete(`/${diagramId}`);
-      return response.data;
-    } catch (error) {
-      console.error('Error deleting diagram:', error);
-      throw error;
-    }
-  }
 };
