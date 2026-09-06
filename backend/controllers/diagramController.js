@@ -185,33 +185,3 @@ export const updateDiagram = async (req, res) => {
   }
 };
 
-// DELETE: delete diagram
-export const deleteDiagram = async (req, res) => {
-  try {
-    console.log(" Deleting diagram with ID:", req.params.id);
-
-    const { id } = req.params;
-
-    const diagram = await Diagram.findByIdAndDelete(id);
-
-    if (!diagram) {
-      return res.status(404).json({
-        success: false,
-        message: "Diagram not found",
-      });
-    }
-
-    console.log(" Diagram deleted:", id);
-    res.status(200).json({
-      success: true,
-      message: "Diagram deleted successfully",
-    });
-  } catch (err) {
-    console.error(" Error deleting diagram:", err);
-    res.status(500).json({
-      success: false,
-      message: "Server error deleting diagram",
-      error: err.message,
-    });
-  }
-};

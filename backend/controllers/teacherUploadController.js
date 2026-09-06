@@ -55,34 +55,7 @@ export const getAllUploads = async (req, res) => {
   }
 };
 
-// Get upload by ID
-export const getUploadById = async (req, res) => {
-  console.log('📁 [Teacher Uploads] Get upload by ID request received');
-  console.log('📁 [Teacher Uploads] Upload ID:', req.params.id);
-  
-  try {
-    const { id } = req.params;
-    const upload = await TeacherUpload.findOne({ id });
 
-    if (!upload) {
-      console.log('⚠️ [Teacher Uploads] Upload not found:', id);
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Upload not found' 
-      });
-    }
-
-    console.log('✅ [Teacher Uploads] Upload retrieved successfully:', upload.name);
-    res.status(200).json({ success: true, upload });
-  } catch (error) {
-    console.error('❌ [Teacher Uploads] Error fetching upload:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error fetching upload', 
-      error: error.message 
-    });
-  }
-};
 
 // Delete upload (for teacher)
 export const deleteUpload = async (req, res) => {

@@ -66,34 +66,7 @@ export const saveTeam = async (req, res) => {
   }
 };
 
-// Get team by project name (deprecated - use getTeamByGroupId instead)
-export const getTeamByProject = async (req, res) => {
-  console.log('👥 [Teams] Get team by project request received (deprecated)');
-  console.log('👥 [Teams] Project name:', req.params.projectName);
-  
-  try {
-    const { projectName } = req.params;
-    const team = await Team.findOne({ projectName });
 
-    if (!team) {
-      console.log('⚠️ [Teams] Team not found:', projectName);
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Team not found' 
-      });
-    }
-
-    console.log('✅ [Teams] Team retrieved successfully:', projectName);
-    res.status(200).json({ success: true, team });
-  } catch (error) {
-    console.error('❌ [Teams] Error fetching team:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error fetching team', 
-      error: error.message 
-    });
-  }
-};
 
 // Get team by groupId
 export const getTeamByGroupId = async (req, res) => {
@@ -124,118 +97,11 @@ export const getTeamByGroupId = async (req, res) => {
   }
 };
 
-// Verify leader password
-export const verifyLeaderPassword = async (req, res) => {
-  console.log('👥 [Teams] Verify leader password request received');
-  console.log('👥 [Teams] Project name:', req.body.projectName);
-  
-  try {
-    const { projectName, password } = req.body;
-    const team = await Team.findOne({ projectName });
 
-    if (!team) {
-      console.log('⚠️ [Teams] Team not found:', projectName);
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Team not found' 
-      });
-    }
 
-    if (team.leaderPassword !== password) {
-      console.log('⚠️ [Teams] Invalid password for project:', projectName);
-      return res.status(401).json({ 
-        success: false, 
-        message: 'Invalid password' 
-      });
-    }
 
-    console.log('✅ [Teams] Password verified successfully for:', projectName);
-    res.status(200).json({ 
-      success: true, 
-      message: 'Password verified successfully',
-      leaderName: team.leaderName,
-      members: team.members,
-      groupId: team.groupId
-    });
-  } catch (error) {
-    console.error('❌ [Teams] Error verifying password:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error verifying password', 
-      error: error.message 
-    });
-  }
-};
 
-// Update project name
-export const updateProjectName = async (req, res) => {
-  console.log('👥 [Teams] Update project name request received');
-  console.log('👥 [Teams] Old project name:', req.body.oldProjectName);
-  console.log('👥 [Teams] New project name:', req.body.newProjectName);
-  
-  try {
-    const { oldProjectName, newProjectName } = req.body;
 
-    const team = await Team.findOne({ projectName: oldProjectName });
-
-    if (!team) {
-      console.log('⚠️ [Teams] Team not found:', oldProjectName);
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Team not found' 
-      });
-    }
-
-    team.projectName = newProjectName;
-    const updatedTeam = await team.save();
-    console.log('✅ [Teams] Project name updated successfully:', oldProjectName, '->', newProjectName);
-
-    res.status(200).json({ 
-      success: true, 
-      message: 'Project name updated successfully',
-      team: updatedTeam 
-    });
-  } catch (error) {
-    console.error('❌ [Teams] Error updating project name:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error updating project name', 
-      error: error.message 
-    });
-  }
-};
-
-// Delete team
-export const deleteTeam = async (req, res) => {
-  console.log('👥 [Teams] Delete team request received');
-  console.log('👥 [Teams] Project name:', req.params.projectName);
-  
-  try {
-    const { projectName } = req.params;
-    const deletedTeam = await Team.findOneAndDelete({ projectName });
-
-    if (!deletedTeam) {
-      console.log('⚠️ [Teams] Team not found:', projectName);
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Team not found' 
-      });
-    }
-
-    console.log('✅ [Teams] Team deleted successfully:', projectName);
-    res.status(200).json({ 
-      success: true, 
-      message: 'Team deleted successfully' 
-    });
-  } catch (error) {
-    console.error('❌ [Teams] Error deleting team:', error);
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error deleting team', 
-      error: error.message 
-    });
-  }
-};
 
 // Get group data by groupId
 export const getGroupByGroupId = async (req, res) => {
