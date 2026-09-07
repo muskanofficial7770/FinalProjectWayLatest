@@ -1,6 +1,6 @@
 /* ===== Assign Task page ===== */
 
-.assign-page {
+.at-page {
   max-width: 768px;
   margin: 0 auto;
   margin-top: 0;
@@ -11,7 +11,7 @@
 
 /* Access restricted state */
 
-.assign-access-wrapper {
+.at-access-wrapper {
   max-width: 480px;
   margin: 5rem auto 0 auto;
   text-align: center;
@@ -20,7 +20,7 @@
   gap: 1rem;
 }
 
-.assign-access-icon {
+.at-access-icon {
   width: 5rem;
   height: 5rem;
   background-color: #fef2f2;
@@ -32,68 +32,68 @@
   margin: 0 auto;
 }
 
-.assign-access-lock {
+.at-access-lock {
   font-size: 2.25rem;
 }
 
-.assign-access-title {
+.at-access-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #0f172a;
 }
 
-.assign-access-text {
+.at-access-text {
   font-size: 0.875rem;
   color: #6b7280;
 }
 
-.assign-gate-body {
+.at-gate-body {
   padding-bottom: 1.25rem;
 }
 
-.assign-gate-error {
+.at-gate-error {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: #b91c1c;
 }
 
-.assign-footer-narrow {
+.at-footer-narrow {
   margin-top: 0;
 }
 
-.assign-submit-btn:disabled {
+.at-submit-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
 /* Header */
 
-.assign-header {
+.at-header {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.assign-title {
+.at-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: #0f172a;
   letter-spacing: -0.01em;
 }
 
-.assign-subtitle {
+.at-subtitle {
   font-size: 0.875rem;
   color: #6b7280;
 }
 
-.assign-leader-name {
+.at-leader-name {
   font-weight: 600;
   color: #2563eb;
 }
 
 /* Card */
 
-.assign-card {
+.at-card {
   position: relative;
   background-color: #ffffff;
   border-radius: 0.75rem;
@@ -102,7 +102,7 @@
   overflow: hidden;
 }
 
-.assign-card-border {
+.at-card-border {
   position: absolute;
   top: 0;
   left: 0;
@@ -111,13 +111,13 @@
   background-color: #2563eb;
 }
 
-.assign-card-header {
+.at-card-header {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #e5e7eb;
   background-color: rgba(37, 99, 235, 0.05);
 }
 
-.assign-card-header-title {
+.at-card-header-title {
   font-size: 0.95rem;
   font-weight: 600;
   color: #0f172a;
@@ -126,13 +126,13 @@
   gap: 0.5rem;
 }
 
-.assign-card-header-icon {
+.at-card-header-icon {
   color: #2563eb;
 }
 
 /* Body */
 
-.assign-card-body {
+.at-card-body {
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
@@ -140,24 +140,24 @@
 }
 
 @media (min-width: 768px) {
-  .assign-card-body {
+  .at-card-body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .assign-field-full {
+  .at-field-full {
     grid-column: 1 / -1;
   }
 }
 
 /* Fields */
 
-.assign-field {
+.at-field {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-.assign-label {
+.at-label {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -165,13 +165,13 @@
   color: #6b7280;
 }
 
-.assign-required {
+.at-required {
   color: #ef4444;
 }
 
 /* Inputs */
 
-.assign-input {
+.at-input {
   width: 100%;
   border-radius: 0.75rem;
   border: 1px solid #e5e7eb;
@@ -183,27 +183,27 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-.assign-input:focus {
+.at-input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
   background-color: #ffffff;
 }
 
-.assign-password-wrapper {
+.at-password-wrapper {
   position: relative;
 }
 
-.assign-password-input {
+.at-password-input {
   padding-right: 1rem;
 }
 
 /* Select */
 
-.assign-select-wrapper {
+.at-select-wrapper {
   position: relative;
 }
 
-.assign-select {
+.at-select {
   width: 100%;
   border-radius: 0.75rem;
   border: 1px solid #e5e7eb;
@@ -217,13 +217,13 @@
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-.assign-select:focus {
+.at-select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
   background-color: #ffffff;
 }
 
-.assign-select-icon-wrapper {
+.at-select-icon-wrapper {
   position: absolute;
   inset: 0;
   right: 0;
@@ -234,24 +234,24 @@
   padding-right: 0.75rem;
 }
 
-.assign-select-icon {
+.at-select-icon {
   font-size: 20px;
   color: #6b7280;
 }
 
 /* Date */
 
-.assign-date-wrapper {
+.at-date-wrapper {
   position: relative;
 }
 
-.assign-input-date {
+.at-input-date {
   padding-left: 2.5rem;
   color: #111827;
   background-color: #ffffff;
 }
 
-.assign-input-date::-webkit-calendar-picker-indicator {
+.at-input-date::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
@@ -264,7 +264,7 @@
   width: auto;
 }
 
-.assign-date-icon {
+.at-date-icon {
   position: absolute;
   left: 0.75rem;
   top: 50%;
@@ -275,14 +275,14 @@
 
 /* Footer / button */
 
-.assign-footer {
+.at-footer {
   grid-column: 1 / -1;
   padding-top: 1.5rem;
   margin-top: 0.5rem;
   border-top: 1px solid #e5e7eb;
 }
 
-.assign-submit-btn {
+.at-submit-btn {
   width: 100%;
   display: inline-flex;
   align-items: center;
@@ -300,10 +300,10 @@
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
 }
 
-.assign-submit-btn:hover {
+.at-submit-btn:hover {
   background-color: #1d4ed8;
 }
 
-.assign-submit-icon {
+.at-submit-icon {
   font-size: 20px;
 }

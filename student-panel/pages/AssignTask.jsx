@@ -16,14 +16,14 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
 
   if (!leaderName) {
     return (
-      <div className="assign-access-wrapper">
-        <div className="assign-access-icon">
-          <span className="material-symbols-outlined assign-access-lock">
+      <div className="at-access-wrapper">
+        <div className="at-access-icon">
+          <span className="material-symbols-outlined at-access-lock">
             lock
           </span>
         </div>
-        <h2 className="assign-access-title">Access Restricted</h2>
-        <p className="assign-access-text">
+        <h2 className="at-access-title">Access Restricted</h2>
+        <p className="at-access-text">
           Only the Group Leader can assign tasks.
           The leader must enter the same password from the Progress Tracking page to unlock this page.
         </p>
@@ -33,14 +33,14 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
 
   if (!leaderPassword) {
     return (
-      <div className="assign-access-wrapper">
-        <div className="assign-access-icon">
-          <span className="material-symbols-outlined assign-access-lock">
+      <div className="at-access-wrapper">
+        <div className="at-access-icon">
+          <span className="material-symbols-outlined at-access-lock">
             lock
           </span>
         </div>
-        <h2 className="assign-access-title">Set a leader password</h2>
-        <p className="assign-access-text">
+        <h2 className="at-access-title">Set a leader password</h2>
+        <p className="at-access-text">
           Go to <strong>Progress Tracking</strong> and use{" "}
           <strong>Save team</strong> so your leader password is stored. Then
           return here and enter that password to assign tasks.
@@ -60,34 +60,34 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
 
   if (!isAssignUnlocked) {
     return (
-      <div className="assign-page">
-        <div className="assign-header">
-          <h1 className="assign-title">Confirm leader access</h1>
-          <p className="assign-subtitle">
+      <div className="at-page">
+        <div className="at-header">
+          <h1 className="at-title">Confirm leader access</h1>
+          <p className="at-subtitle">
             Enter the same password you saved for{" "}
-            <span className="assign-leader-name">{leaderName}</span> on
+            <span className="at-leader-name">{leaderName}</span> on
             Progress Tracking.
           </p>
         </div>
 
-        <div className="assign-card">
-          <div className="assign-card-border" />
-          <div className="assign-card-header">
-            <h2 className="assign-card-header-title">
-              <span className="material-symbols-outlined assign-card-header-icon">
+        <div className="at-card">
+          <div className="at-card-border" />
+          <div className="at-card-header">
+            <h2 className="at-card-header-title">
+              <span className="material-symbols-outlined at-card-header-icon">
                 verified_user
               </span>
               Leader password
             </h2>
           </div>
-          <div className="assign-card-body assign-gate-body">
-            <div className="assign-field assign-field-full">
-              <label className="assign-label" htmlFor="assign-gate-password">
-                Password <span className="assign-required">*</span>
+          <div className="at-card-body at-gate-body">
+            <div className="at-field at-field-full">
+              <label className="at-label" htmlFor="at-gate-password">
+                Password <span className="at-required">*</span>
               </label>
-              <div className="assign-password-wrapper">
+              <div className="at-password-wrapper">
                 <input
-                  id="assign-gate-password"
+                  id="at-gate-password"
                   type="password"
                   value={gatePassword}
                   onChange={(e) => {
@@ -95,25 +95,25 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
                     setGateError("");
                   }}
                   onKeyDown={(e) => e.key === "Enter" && handleUnlockAssign()}
-                  className="assign-input assign-password-input"
+                  className="at-input at-password-input"
                   placeholder="Type your leader password"
                   autoComplete="new-password"
                 />
               </div>
               {gateError ? (
-                <p className="assign-gate-error" role="alert">
+                <p className="at-gate-error" role="alert">
                   {gateError}
                 </p>
               ) : null}
             </div>
-            <div className="assign-footer assign-footer-narrow">
+            <div className="at-footer at-footer-narrow">
               <button
                 type="button"
                 onClick={handleUnlockAssign}
-                className="assign-submit-btn"
+                className="at-submit-btn"
                 disabled={!gatePassword.trim()}
               >
-                <span className="material-symbols-outlined assign-submit-icon">
+                <span className="material-symbols-outlined at-submit-icon">
                   lock_open
                 </span>
                 Continue to assign tasks
@@ -157,51 +157,51 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
   };
 
   return (
-    <div className="assign-page">
-      <div className="assign-header">
-        <h1 className="assign-title">Assign New Task</h1>
-        <p className="assign-subtitle">
+    <div className="at-page">
+      <div className="at-header">
+        <h1 className="at-title">Assign New Task</h1>
+        <p className="at-subtitle">
           Logged in as Leader:{" "}
-          <span className="assign-leader-name">{leaderName}</span>
+          <span className="at-leader-name">{leaderName}</span>
         </p>
       </div>
 
-      <div className="assign-card">
-        <div className="assign-card-border" />
-        <div className="assign-card-header">
-          <h2 className="assign-card-header-title">
-            <span className="material-symbols-outlined assign-card-header-icon">
+      <div className="at-card">
+        <div className="at-card-border" />
+        <div className="at-card-header">
+          <h2 className="at-card-header-title">
+            <span className="material-symbols-outlined at-card-header-icon">
               assignment_add
             </span>
             Task Details
           </h2>
         </div>
 
-        <div className="assign-card-body">
+        <div className="at-card-body">
           {/* Task Name */}
-          <div className="assign-field assign-field-full">
-            <label className="assign-label">
-              Task Description <span className="assign-required">*</span>
+          <div className="at-field at-field-full">
+            <label className="at-label">
+              Task Description <span className="at-required">*</span>
             </label>
             <input
               value={newTaskName}
               onChange={(e) => setNewTaskName(e.target.value)}
-              className="assign-input"
+              className="at-input"
               placeholder="Enter task description like 'Design the homepage'..."
               type="text"
             />
           </div>
 
           {/* Assign To */}
-          <div className="assign-field">
-            <label className="assign-label">
-              Assign To <span className="assign-required">*</span>
+          <div className="at-field">
+            <label className="at-label">
+              Assign To <span className="at-required">*</span>
             </label>
-            <div className="assign-select-wrapper">
+            <div className="at-select-wrapper">
               <select
                 value={newTaskAssignee}
                 onChange={(e) => setNewTaskAssignee(e.target.value)}
-                className="assign-select"
+                className="at-select"
               >
                 <option value="">Select a member...</option>
                 <option value={leaderName}>{leaderName} (leader)</option>
@@ -211,8 +211,8 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
                   </option>
                 ))}
               </select>
-              <span className="assign-select-icon-wrapper">
-                <span className="material-symbols-outlined assign-select-icon">
+              <span className="at-select-icon-wrapper">
+                <span className="material-symbols-outlined at-select-icon">
                   expand_more
                 </span>
               </span>
@@ -220,25 +220,25 @@ const AssignTask = ({ onAddTask, leaderName, members, leaderPassword, groupId })
           </div>
 
           {/* Deadline */}
-          <div className="assign-field">
-            <label className="assign-label">Deadline</label>
-            <div className="assign-date-wrapper">
+          <div className="at-field">
+            <label className="at-label">Deadline</label>
+            <div className="at-date-wrapper">
               <input
                 value={newTaskDate}
                 onChange={(e) => setNewTaskDate(e.target.value)}
-                className="assign-input assign-input-date"
+                className="at-input at-input-date"
                 type="date"
               />
-              <span className="material-symbols-outlined assign-date-icon">
+              <span className="material-symbols-outlined at-date-icon">
                 calendar_today
               </span>
             </div>
           </div>
 
           {/* Submit Button */}
-          <div className="assign-footer">
-            <button type="button" onClick={handleAddTask} className="assign-submit-btn">
-              <span className="material-symbols-outlined assign-submit-icon">
+          <div className="at-footer">
+            <button type="button" onClick={handleAddTask} className="at-submit-btn">
+              <span className="material-symbols-outlined at-submit-icon">
                 add_task
               </span>
               Confirm Assignment
