@@ -83,11 +83,9 @@ const Feedback = ({ projectName, leaderName, userName }) => {
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Accepted': return 'feedback-status-accepted';
-      case 'Rejected': return 'feedback-status-rejected';
-      case 'Feedback Sent': return 'feedback-status-pending';
-      case 'Replied': return 'feedback-status-replied';
-      default: return 'feedback-status-pending';
+      case 'Accepted': return 'fd-status-accepted';
+      case 'Rejected': return 'fd-status-rejected';
+      default: return 'fd-status-pending';
     }
   };
 
@@ -163,11 +161,7 @@ const Feedback = ({ projectName, leaderName, userName }) => {
                        {(feedback.ideaCurrentStatus || feedback.status).toUpperCase()}
                     </span>
                     {!feedback.isRead && <span className="fd-new-badge">New</span>}
-                    <div className="fd-reviewer-info">
-                      <div className="fd-reviewer-details">
-                        <div className="fd-reviewer-name">{feedback.teacherName}</div>
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="fd-project-info">
                     <strong>Project:</strong> {feedback.projectName || feedback.ideaTitle}
@@ -182,15 +176,9 @@ const Feedback = ({ projectName, leaderName, userName }) => {
               {activeFilter === 'issue' && issuesWithReplies.map((issue) => (
                 <div key={issue.id} className="fd-card" onClick={() => handleIssueMarkAsRead(issue._id)}>
                   <div className="fd-card-header">
-                    <span className={`fd-status-tag ${getStatusClass(issue.status)}`}>
-                       {issue.status.toUpperCase()}
-                    </span>
+                    
                     {!issue.isRead && <span className="fd-new-badge">New</span>}
-                    <div className="fd-reviewer-info">
-                      <div className="fd-reviewer-details">
-                        <div className="fd-reviewer-name">Teacher</div>
-                      </div>
-                    </div>
+                    
                   </div>
                   <div className="fd-project-info">
                     <strong>Issue Category:</strong> {issue.category}

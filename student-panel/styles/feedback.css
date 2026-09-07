@@ -105,8 +105,8 @@
 .fd-card-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  justify-content: center;
+
 }
 
 .fd-status-tag {
@@ -132,10 +132,6 @@
   color: #ef4444;
 }
 
-.fd-status-replied {
-  background-color: #fef2f2;
-  color: #ef4444;
-}
 
 .fd-new-badge {
   padding: 0.25rem 0.75rem;
@@ -144,23 +140,7 @@
   font-weight: 700;
   background-color: #ef4444;
   color: #ffffff;
-  margin-left: 0.5rem;
-}
-
-.fd-reviewer-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.fd-reviewer-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.fd-reviewer-name {
-  font-size: 0.75rem;
-  color: #6b7280;
+ 
 }
 
 .fd-message {
