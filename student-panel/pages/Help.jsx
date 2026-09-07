@@ -57,31 +57,31 @@ const Help = ({ userName, projectName }) => {
   };
 
   return (
-    <div className="help-container">
-      <div className="help-header">
-        <h1 className="help-title">Need Assistance?</h1>
-        <p className="help-subtitle">If you are facing any issues with your project or the dashboard, please let us know.</p>
+    <div className="h-container">
+      <div className="h-header">
+        <h1 className="h-title">Need Assistance?</h1>
+        <p className="h-subtitle">If you are facing any issues with your project or task, please let us know.</p>
       </div>
 
-      <div className="help-card">
-        <div className="help-card-inner">
-          <div className="help-card-header">
-            <div className="help-icon-container">
-              <span className="material-symbols-outlined help-icon">support_agent</span>
+      <div className="h-card">
+        <div className="h-card-inner">
+          <div className="h-card-header">
+            <div className="h-icon-container">
+              <span className="material-symbols-outlined h-icon">support_agent</span>
             </div>
             <div>
-              <h2 className="help-card-title">Report an Issue</h2>
-              <p className="help-card-description">Describe your problem in detail so your teacher can understand and help you effectively.</p>
+              <h2 className="h-card-title">Report an Issue</h2>
+              <p className="h-card-description">Describe your problem in detail so the teacher can help you.</p>
             </div>
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="help-form-group">
-              <label className="help-label" htmlFor="issue-type">
+            <div className="h-form-group">
+              <label className="h-label" htmlFor="issue-type">
                 What type of issue is this?
               </label>
               <select
-                className="help-select"
+                className="h-select"
                 id="issue-type"
                 value={issueType}
                 onChange={(e) => setIssueType(e.target.value)}
@@ -94,37 +94,37 @@ const Help = ({ userName, projectName }) => {
               </select>
             </div>
 
-            <div className="help-form-group">
-              <label className="help-label" htmlFor="issue-description">
+            <div className="h-form-group">
+              <label className="h-label" htmlFor="issue-description">
                 Describe your Issue/Problem.
               </label>
               <textarea 
-                className="help-textarea" 
+                className="h-textarea" 
                 id="issue-description" 
                 placeholder="Please provide specific details about what you're experiencing..."
                 value={issueDescription}
                 onChange={handleDescriptionChange}
                 maxLength={1000}
               ></textarea>
-              <p className="help-char-count">{charCount}/1000 characters</p>
+              <p className="h-char-count">{charCount}/1000 characters</p>
             </div>
 
-            <div className="help-footer">
-              <div className="help-info-text">
-                <span className="material-symbols-outlined help-info-icon">info</span>
-                Your teacher will be notified immediately.
+            <div className="h-footer">
+              <div className="h-info-text">
+                <span className="material-symbols-outlined h-info-icon">info</span>
+                The teacher will be notified immediately.
               </div>
-              <div className="help-buttons">
-                <button type="button" className="help-cancel-btn" onClick={() => {
+              <div className="h-buttons">
+                <button type="button" className="h-cancel-btn" onClick={() => {
                   setIssueType('');
                   setIssueDescription('');
                   setCharCount(0);
                 }}>
                   Cancel
                 </button>
-                <button type="submit" className="help-submit-btn">
+                <button type="submit" className="h-submit-btn">
                   <span>Submit to Teacher</span>
-                  <span className="material-symbols-outlined help-submit-icon">send</span>
+                  <span className="material-symbols-outlined h-submit-icon">send</span>
                 </button>
               </div>
             </div>
