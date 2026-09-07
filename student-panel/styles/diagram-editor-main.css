@@ -26,11 +26,6 @@
   gap: 0.75rem;
 }
 
-.diagram-editor-logo-svg {
-  width: 2rem;
-  height: 2rem;
-}
-
 .diagram-editor-title {
   font-size: 1.125rem;
   font-weight: 700;
@@ -107,71 +102,6 @@
   flex: 1;
   overflow: hidden;
   min-height: 0;
-}
-
-.diagram-editor-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #e2e8f0;
-  padding: 0.25rem 1rem;
-  background-color: white;
-  z-index: 10;
-  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.diagram-editor-footer-text {
-  font-size: 0.875rem;
-  color: #475569;
-}
-
-.diagram-editor-footer-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.diagram-editor-footer-button {
-  display: flex;
-  height: 2rem;
-  width: 2rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-.diagram-editor-footer-button:hover {
-  background-color: #f1f5f9;
-}
-
-.diagram-editor-footer-button:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.diagram-editor-footer-button:disabled:hover {
-  background-color: transparent;
-}
-
-.diagram-editor-footer-button.delete:disabled {
-  color: #94a3b8;
-}
-
-.diagram-editor-footer-button.delete:disabled:hover {
-  color: #94a3b8;
-}
-
-.diagram-editor-footer-icon {
-  font-size: 1.25rem;
-}
-
-.diagram-editor-footer-button.delete:not(:disabled) {
-  color: #ef4444;
-}
-
-.diagram-editor-footer-button.delete:not(:disabled):hover {
-  background-color: #fef2f2;
 }
 
 /* Canvas Container */
@@ -367,13 +297,6 @@
 .shape-connector {
   background-color: transparent;
   border-width: 0;
-}
-
-.shape-content {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .shape-svg {
@@ -615,12 +538,6 @@
 .shape-icon-actor {
   width: 100%;
   height: 2rem;
-  color: #334155;
-}
-
-.shape-icon-human {
-  width: 100%;
-  height: 100%;
   color: #334155;
 }
 
@@ -882,43 +799,6 @@
   color: #64748b;
 }
 
-.sidebar-footer {
-  padding: 0.5rem;
-  border-top: 1px solid #e2e8f0;
-}
-
-.sidebar-footer-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.sidebar-footer-button {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s;
-  color: #475569;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.sidebar-footer-button:hover {
-  background-color: #f1f5f9;
-}
-
-.sidebar-footer-button-icon {
-  font-size: 1.25rem !important;
-}
-
-.sidebar-footer-button-text {
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
 /* SidebarRight Styles */
 .sidebar-right {
   width: 16rem;
@@ -1052,10 +932,6 @@
   font-weight: 500;
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
   text-transform: uppercase;
-}
-
-.property-width-group {
-  width: 4rem;
 }
 
 .property-label {
