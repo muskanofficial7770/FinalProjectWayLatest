@@ -116,28 +116,28 @@ const Feedback = ({ projectName, leaderName, userName }) => {
   };
 
   return (
-    <div className="feedback-page">
-      <div className="feedback-header">
-        <h2 className="feedback-title">Feedback</h2>
-        <p className="feedback-subtitle">Review feedback and comments from teachers on your submissions.</p>
+    <div className="fd-page">
+      <div className="fb-header">
+        <h2 className="fb-title">Feedback</h2>
+        <p className="fb-subtitle">Review feedback and comments from teachers on your submissions.</p>
       </div>
 
-      <div className="feedback-filters">
+      <div className="fb-filter">
         <button 
-          className={`feedback-filter-btn ${activeFilter === 'feedback' ? 'active' : ''}`}
+          className={`fb-filter-btn ${activeFilter === 'feedback' ? 'active' : ''}`}
           onClick={() => setActiveFilter('feedback')}
         >
           Feedback
         </button>
         <button 
-          className={`feedback-filter-btn ${activeFilter === 'issue' ? 'active' : ''}`}
+          className={`fb-filter-btn ${activeFilter === 'issue' ? 'active' : ''}`}
           onClick={() => setActiveFilter('issue')}
         >
           Issue Feedback
         </button>
       </div>
 
-      <div className="feedback-list">
+      <div className="fb-list">
         {(() => {
           const issuesWithReplies = issues.filter(i => i.teacherReply);
           const hasItems = activeFilter === 'feedback'
@@ -146,10 +146,10 @@ const Feedback = ({ projectName, leaderName, userName }) => {
 
           if (!hasItems) {
             return (
-              <div className="feedback-empty">
-                <span className="material-symbols-outlined feedback-empty-icon">inbox</span>
-                <p className="feedback-empty-title">No feedback yet</p>
-                <p className="feedback-empty-subtitle">Teachers haven't provided any feedback on your submissions.</p>
+              <div className="fd-empty">
+                <span className="material-symbols-outlined fd-empty-icon">inbox</span>
+                <p className="fd-empty-title">No feedback yet</p>
+                <p className="fd-empty-subtitle">Teachers haven't provided any feedback on your submissions.</p>
               </div>
             );
           }
@@ -157,51 +157,51 @@ const Feedback = ({ projectName, leaderName, userName }) => {
           return (
             <>
               {activeFilter === 'feedback' && feedbacks.map((feedback) => (
-                <div key={feedback.id} className="feedback-card" onClick={() => handleMarkAsRead(feedback._id)}>
-                  <div className="feedback-card-header">
-                    <span className={`feedback-status-tag ${getStatusClass(feedback.status)}`}>
-                      {feedback.status.toUpperCase()}
+                <div key={feedback.id} className="fd-card" onClick={() => handleMarkAsRead(feedback._id)}>
+                  <div className="fd-card-header">
+                    <span className={`fd-status-tag ${getStatusClass(feedback.status)}`}>
+                       {feedback.status.toUpperCase()}
                     </span>
-                    {!feedback.isRead && <span className="feedback-new-badge">New</span>}
-                    <div className="feedback-reviewer-info">
-                      <div className="feedback-reviewer-details">
-                        <div className="feedback-reviewer-name">{feedback.teacherName}</div>
+                    {!feedback.isRead && <span className="fd-new-badge">New</span>}
+                    <div className="fd-reviewer-info">
+                      <div className="fd-reviewer-details">
+                        <div className="fd-reviewer-name">{feedback.teacherName}</div>
                       </div>
                     </div>
                   </div>
-                  <div className="feedback-project-info">
+                  <div className="fd-project-info">
                     <strong>Project:</strong> {feedback.projectName || feedback.ideaTitle}
                   </div>
-                  <div className="feedback-message">
+                  <div className="fd-message">
                     {feedback.feedback}
                   </div>
-                  <div className="feedback-timestamp">{formatTimestamp(feedback.timestamp)}</div>
+                  <div className="fd-timestamp">{formatTimestamp(feedback.timestamp)}</div>
                 </div>
               ))}
 
               {activeFilter === 'issue' && issuesWithReplies.map((issue) => (
-                <div key={issue.id} className="feedback-card" onClick={() => handleIssueMarkAsRead(issue._id)}>
-                  <div className="feedback-card-header">
-                    <span className={`feedback-status-tag ${getStatusClass(issue.status)}`}>
-                      {issue.status.toUpperCase()}
+                <div key={issue.id} className="fd-card" onClick={() => handleIssueMarkAsRead(issue._id)}>
+                  <div className="fd-card-header">
+                    <span className={`fd-status-tag ${getStatusClass(issue.status)}`}>
+                       {issue.status.toUpperCase()}
                     </span>
-                    {!issue.isRead && <span className="feedback-new-badge">New</span>}
-                    <div className="feedback-reviewer-info">
-                      <div className="feedback-reviewer-details">
-                        <div className="feedback-reviewer-name">Teacher</div>
+                    {!issue.isRead && <span className="fd-new-badge">New</span>}
+                    <div className="fd-reviewer-info">
+                      <div className="fd-reviewer-details">
+                        <div className="fd-reviewer-name">Teacher</div>
                       </div>
                     </div>
                   </div>
-                  <div className="feedback-project-info">
+                  <div className="fd-project-info">
                     <strong>Issue Category:</strong> {issue.category}
                   </div>
-                  <div className="feedback-message">
+                  <div className="fd-message">
                     <strong>Issue by {issue.studentName}:</strong> {issue.description}
                   </div>
-                  <div className="feedback-message" style={{ marginTop: '10px', backgroundColor: '#f0f9ff', padding: '10px', borderRadius: '5px' }}>
+                  <div className="fd-message" style={{ marginTop: '10px', backgroundColor: '#f0f9ff', padding: '10px', borderRadius: '5px' }}>
                     <strong>Teacher Reply:</strong> {issue.teacherReply}
                   </div>
-                  <div className="feedback-timestamp">{formatTimestamp(issue.timestamp)}</div>
+                  <div className="fd-timestamp">{formatTimestamp(issue.timestamp)}</div>
                 </div>
               ))}
             </>
