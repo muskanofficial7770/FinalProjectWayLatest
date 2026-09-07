@@ -1,4 +1,5 @@
 import Feedback from '../models/Feedback.js';
+import StudentIdea from '../models/StudentIdea.js';
 import { User } from '../models/User.js';
 
 
@@ -22,10 +23,21 @@ export const getAllFeedback = async (req, res) => {
     console.log('💬 [Feedback] MongoDB query:', JSON.stringify(query));
     const feedbacks = await Feedback.find(query).sort({ timestamp: -1 });
     
-    // Add per-user read status to each feedback
-    const feedbacksWithReadStatus = feedbacks.map(feedback => ({
-      ...feedback.toObject(),
-      isRead: userName ? feedback.readBy.includes(userName) : false
+    // Add per-user read status and current idea status to each feedback
+    const feedbacksWithReadStatus = await Promise.all(feedbacks.map(async (feedback) => {
+      const feedbackObj = feedback.toObject();
+      
+      // Fetch the current idea status
+      try {
+        const idea = await StudentIdea.findById(feedback.ideaId);
+        feedbackObj.ideaCurrentStatus = idea?.status || feedback.status;
+      } catch (error) {
+        console.warn('⚠️ [Feedback] Could not fetch idea status for ideaId:', feedback.ideaId, error.message);
+        feedbackObj.ideaCurrentStatus = feedback.status;
+      }
+      
+      feedbackObj.isRead = userName ? feedback.readBy.includes(userName) : false;
+      return feedbackObj;
     }));
     
     console.log('✅ [Feedback] Retrieved', feedbacks.length, 'feedbacks total');

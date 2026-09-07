@@ -159,8 +159,8 @@ const Feedback = ({ projectName, leaderName, userName }) => {
               {activeFilter === 'feedback' && feedbacks.map((feedback) => (
                 <div key={feedback.id} className="fd-card" onClick={() => handleMarkAsRead(feedback._id)}>
                   <div className="fd-card-header">
-                    <span className={`fd-status-tag ${getStatusClass(feedback.status)}`}>
-                       {feedback.status.toUpperCase()}
+                    <span className={`fd-status-tag ${getStatusClass(feedback.ideaCurrentStatus || feedback.status)}`}>
+                       {(feedback.ideaCurrentStatus || feedback.status).toUpperCase()}
                     </span>
                     {!feedback.isRead && <span className="fd-new-badge">New</span>}
                     <div className="fd-reviewer-info">
