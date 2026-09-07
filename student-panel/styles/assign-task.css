@@ -197,30 +197,6 @@
   padding-right: 1rem;
 }
 
-.assign-password-toggle {
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #6b7280;
-  cursor: pointer;
-  transform: translateY(-50%);
-}
-
-.assign-password-toggle:hover {
-  color: #2563eb;
-}
-
-.assign-password-toggle:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
 /* Select */
 
 .assign-select-wrapper {
