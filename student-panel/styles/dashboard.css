@@ -175,22 +175,7 @@
   margin-top: 2rem;
 }
 
-.dw-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: none;
-  opacity: 0.6;
-  background-size: cover;
-  background-position: center;
-}
 
-.dw-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  display: none;
-}
 
 .dw-content {
   position: relative;
@@ -198,31 +183,6 @@
   padding: 1.5rem 2rem;
 }
 
-.dn-btn {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  width: 2.75rem;
-  height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.08);
-  color: white;
-  cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-}
-
-.dn-btn:hover {
-  background-color: rgba(255, 255, 255, 0.16);
-  transform: translateY(-1px);
-}
-
-.dn-btn .material-symbols-outlined {
-  font-size: 1.35rem;
-}
 
 .dw-title {
   font-size: 1.875rem;
@@ -278,10 +238,6 @@
   justify-content: center;
 }
 
-.ds-icon-blue {
-  background-color: rgba(37, 99, 235, 0.1);
-  color: #2563eb;
-}
 
 .ds-icon-purple {
   background-color: rgba(168, 85, 247, 0.1);
@@ -417,10 +373,6 @@
   border-left: 3px solid #10b981;
 }
 
-.df-time {
-  font-size: 0.75rem;
-  color: #6b7280;
-}
 
 .d-view-btn {
   display: inline-flex;

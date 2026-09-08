@@ -5,33 +5,7 @@
   margin: 0 auto;
 }
 
-.h-header {
-  margin-bottom: 2rem;
-}
 
-.h-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.h-subtitle {
-  color: #6b7280;
-  font-size: 1rem;
-}
-
-.h-card {
-  background-color: #ffffff;
-  border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.h-card-inner {
-  padding: 2rem;
-}
 
 .h-card-header {
   display: flex;
@@ -70,47 +44,6 @@
   margin-bottom: 1.5rem;
 }
 
-.h-label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.5rem;
-}
-
-.h-select,
-.h-textarea {
-  display: block;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  background-color: #ffffff;
-  font-size: 0.875rem;
-  color: #1f2937;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.h-select:focus,
-.h-textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-  outline: none;
-}
-
-.h-textarea {
-  min-height: 120px;
-  resize: vertical;
-  font-family: inherit;
-}
-
-.h-char-count {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  text-align: right;
-  margin-top: 0.5rem;
-}
-
 .h-footer {
   display: flex;
   align-items: center;
@@ -128,14 +61,6 @@
   color: #6b7280;
 }
 
-.h-info-icon {
-  font-size: 1.25rem;
-}
-
-.h-buttons {
-  display: flex;
-  gap: 1rem;
-}
 
 .h-cancel-btn {
   padding: 0.625rem 1.25rem;
@@ -255,6 +180,7 @@
   color: #111827;
   outline: none;
   resize: none;
+  font-family: inherit;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 

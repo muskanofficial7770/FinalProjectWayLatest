@@ -188,11 +188,6 @@ const Dashboard = ({ userName }) => {
 
       {/* Welcome Banner */}
       <div className="dw-banner">
-        <div 
-          className="dw-bg" 
-          style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZOAkHwo3o9KnO8-LyQWXOL47RdVVfmSDXj6bbBQM6AcRTDwr6VII0_UDLOwwqHEOJ7ErGGBz08Kfm55H50v-u2M_NEKy23EillxdCJCYygjtPy16bkAcxdge6oDzIEfPrppyD3Zjodqc_r_eqwFo-kQ_yedQ4YqtxPpeU--FMGI4wy40qYngQOSrkPpTkA2TmUD82zptG3YWWePlq_BnXAMTB8pieL8Z-LdJyGnGEQbWMVw_6WSWtXJT3QRXqN6Bw0LoRr7Cs-TRN')"}}
-        ></div>
-        <div className="dw-overlay"></div>
         <div className="dw-content">
           <h2 className="dw-title">Welcome back, Student!</h2>
           <p className="dw-subtitle">You have {uploadedFiles.length} new file(s) to review.</p>
