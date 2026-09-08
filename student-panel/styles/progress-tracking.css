@@ -150,7 +150,11 @@
 .pt-input::placeholder {
   color: #9ca3af;
 }
-
+.pt-help-text {
+  font-size: 0.95rem;
+  color: #000000;
+  margin-top: 0.35rem;
+}
 /* Members */
 
 .pt-members-input-row {
