@@ -8,7 +8,7 @@ import ProgressTracking from "./pages/ProgressTracking";
 import AssignTask from "./pages/AssignTask";
 import Help from "./pages/Help";
 import DiagramEditor from "./pages/DiagramEditor";
-import { saveTeam, getTeamByGroupId, createTask, getTasksByGroupId, toggleTaskStatus, getUserGroupId } from "./api/studentPanelApi";
+import { saveTeam, getTeamByGroupId, createTask, getTasksByGroupId, toggleTaskStatus, getUserGroupId, getRoles } from "./api/studentPanelApi";
 import "./styles/app.css";
 import "./styles/dashboard.css";
 import "./styles/submit-idea.css";
@@ -34,37 +34,49 @@ function App({ userName, onLogout }) {
   const [leaderPassword, setLeaderPassword] = useState("");
 
   useEffect(() => {
-    const loadPermissions = () => {
-      const saved = localStorage.getItem('roles');
-      if (saved) {
-        const roles = JSON.parse(saved);
-        const student = roles.find(r => r.id === '3');
-        if (student) {
-          setStudentPermissions(student.permissions);
+    const loadPermissions = async () => {
+      try {
+        const response = await getRoles();
+        if (response.roles && response.roles.length > 0) {
+          const roles = response.roles.map((role) => ({
+            ...role,
+            id: role.roleId || role._id || role.id,
+          }));
+          const student = roles.find(r => r.id === '3');
+          if (student) {
+            setStudentPermissions(student.permissions);
+            // Cache in localStorage as fallback
+            localStorage.setItem('roles', JSON.stringify(roles));
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load permissions from backend, falling back to localStorage:', error);
+        // Fallback to localStorage
+        const saved = localStorage.getItem('roles');
+        if (saved) {
+          const roles = JSON.parse(saved);
+          const student = roles.find(r => r.id === '3');
+          if (student) {
+            setStudentPermissions(student.permissions);
+          }
         }
       }
     };
 
     loadPermissions();
 
-    // Listen for storage changes to update permissions when admin saves
-    const handleStorageChange = (e) => {
-      if (e.key === 'roles') {
-        loadPermissions();
-      }
-    };
-
-    window.addEventListener('storage', handleStorageChange);
+    // Poll for updates every 30 seconds
+    const intervalId = setInterval(loadPermissions, 30000);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(intervalId);
     };
   }, []);
 
-  const canViewProgress = !studentPermissions.includes('progress.track');
-  const canCreateDiagram = !studentPermissions.includes('diagram.create');
-  const canSubmitIdea = !studentPermissions.includes('idea.submit');
-  const canViewHelp = !studentPermissions.includes('help.view');
+  const canViewProgress = studentPermissions.includes('progress.track');
+  const canCreateDiagram = studentPermissions.includes('diagram.create');
+  const canSubmitIdea = studentPermissions.includes('idea.submit');
+  const canViewHelp = studentPermissions.includes('help.view');
 
   const isActive = (path) => {
     const currentPath = location.pathname;

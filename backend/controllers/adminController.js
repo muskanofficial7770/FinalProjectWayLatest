@@ -170,3 +170,12 @@ export async function updateRole(req, res, next) {
     next(error);
   }
 }
+
+export async function getRolesPublic(req, res, next) {
+  try {
+    const roles = await Role.find({});
+    res.json({ roles });
+  } catch (error) {
+    next(error);
+  }
+}

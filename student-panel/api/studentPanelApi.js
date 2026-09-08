@@ -299,3 +299,13 @@ export const getUserSession = async (name) => {
     return { session: null };
   }
 };
+
+export const getRoles = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/admin/roles/public`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching roles:', error);
+    return { success: false, message: 'Error fetching roles', error: error.message };
+  }
+};
